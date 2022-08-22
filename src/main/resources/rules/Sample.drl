@@ -1,0 +1,300 @@
+package rules
+
+import com.javainuse.model.BodyMassIndex;
+import com.javainuse.model.Ishrana;
+
+
+//MLADI OD 18-24 GOD
+rule "1-Neuhranjenost-1"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=18 && godine<=24), bmi<19)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM.");     
+end
+
+rule "1-Normalan bmi-2"
+salience 90
+    when
+        b : BodyMassIndex((godine>=18 && godine<=24), ( bmi>=19 || bmi<24))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM.");     
+end
+
+
+
+rule "1-Povisen bmi-3"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=18 && godine<=24), bmi>=24)
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM. ");     
+end
+
+
+
+
+
+rule "2-Neuhranjenost-4"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=25 && godine<=34), bmi<20)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM.");     
+end
+
+//MLADI 25-34 GOD
+rule "2-Normalan bmi-5"
+salience 90
+    when
+        b : BodyMassIndex((godine>=25 && godine<=34), ( bmi>=20 || bmi<25))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM.");     
+end
+
+
+
+rule "2-Povisen bmi-6"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=25 && godine<=34), bmi>=25 )
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM. ");     
+end
+
+
+
+
+
+//ODRASLI 35-44
+rule "3-Neuhranjenost-7"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=35 && godine<=44), bmi<21)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM. ");     
+end
+
+rule "3-Normalan bmi-8"
+salience 90
+    when
+        b : BodyMassIndex((godine>=35 && godine<=44), ( bmi>=21 || bmi<26))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM. ");     
+end
+
+
+
+rule "3-Povisen bmi-9"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=35 && godine<=44), bmi>=26)
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM. ");     
+end
+
+
+
+
+
+//ODRASLI2 45-54 GOD
+rule "4-Neuhranjenost-10"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=45 && godine<=54), bmi<22)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM.");     
+end
+
+rule "4-Normalan bmi-11"
+salience 90
+    when
+        b : BodyMassIndex((godine>=45 && godine<=54), ( bmi>=22 || bmi<27))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM.");     
+end
+
+
+
+rule "4-Povisen bmi-12"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=45 && godine<=54), bmi>=27)
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM.");     
+end
+
+
+
+
+//STAROSNA GRUPA 55-64
+rule "5-Neuhranjenost-13"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=55 && godine<=64), bmi<23)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM. ");     
+end
+
+rule "5-Normalan bmi-14"
+salience 90
+    when
+        b : BodyMassIndex((godine>=55 && godine<=64), ( bmi>=23 || bmi<28))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM. ");     
+end
+
+
+
+rule "5-Povisen bmi-15"
+salience 90
+    when
+        b : BodyMassIndex( (godine>=55 && godine<=64), bmi>28)
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM.");     
+end
+
+
+
+
+//65+
+rule "6-Neuhranjenost-16"
+salience 90
+    when
+        b : BodyMassIndex( godine>=65, bmi<24)
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: SMANJENOM TELESNOM TEZINOM. ");     
+end
+
+rule "6-Normalan bmi-17"
+salience 90
+    when
+        b : BodyMassIndex(godine>=65, ( bmi>=24 && bmi<29))
+    then
+        b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: NORMALNOM TELESNOM TEZINOM.");     
+end
+
+
+
+rule "6-Povisen bmi-18"
+salience 90
+    when
+        b : BodyMassIndex( godine>=65 , bmi>29 )
+    then
+      b.setBodyMassIndex("Prema unesenim podacima spadate u grupu ljudi sa: POVISENOM TELESNOM TEZINOM.");     
+end
+
+rule "19-dobijanje misicne mase"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "dobijanje misicne mase", (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno"),
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Visoko proteinsku ishranu i kalorijski suficit!");     
+end	
+	
+rule "20-gojenje"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "dobijanje telesne mase", (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"),
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Preporucujemo povecanje unosa kalorija na dnevnom nivou zarad dobijanja na telesnoj masi!");     
+end	
+
+rule "21-misici bez treninga"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "dobijanje misicne mase", trening=="ne treniram",
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Preporucujemo postepeno uvodjenje treninga i vise proteina u ishrani!");     
+end	
+
+rule "22-odrzavanje"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "odrzavanje", (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"),
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Nastavite da se hranite po ustaljenom rezimu uz male izmene u ishrani(izbacivanje nezdravih secera, sokova, belog brasna)");     
+end		
+	
+rule "23-MRSAVLJENEJ"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "mrsavljenje", (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno"),
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Preporucujemo kalorijski deficit za postizanje zeljenih rezultata ili neku od dijeta: keto, UN, narandza)");     
+end	
+
+rule "24-MRSAVLJENEJ"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), ciljPromeneIshrane== "mrsavljenje", (trening=="ne treniram"),
+         (problemSaUobrocavanjem=="Ne" &&  problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="nemam" )
+    then
+      i.setIshrana("Preporucujemo kalorijski deficit za postizanje zeljenih rezultata i uvodjenje nekog vida treninga");     
+end	
+	
+rule "25-secer"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" &&ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"), (problemSaUobrocavanjem=="Ne" && problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="Dijabetes" )
+    then
+      i.setIshrana("Preporucujemo keto dijetu(smanjen unos ugljenih hidrata), zbog zdravstvenog stanja!");     
+end		
+
+rule "26-hormonski disbalasn"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" &&ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"), (problemSaUobrocavanjem=="Ne" && problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="Hormonski disbalans" )
+    then
+      i.setIshrana("Preporucujemo ravnomeran unos svih namirnica!");     
+end	
+
+rule "27-hormonski disbalasn"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" &&ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"), (problemSaUobrocavanjem=="Ne" && problemSaUobrocavanjem=="Da"), kalorije<1000, zdravstveniProblem=="Hormonski disbalans" )
+    then
+      i.setIshrana("Unosite premalo kalorija sto moze dovesti do hormonskog disbalansa! Jedite vise!");     
+end	
+
+
+rule "28-premalo"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" && ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"), (problemSaUobrocavanjem=="Ne" && problemSaUobrocavanjem=="Da"), kalorije<1000,
+        ( zdravstveniProblem=="nemam" &&  zdravstveniProblem=="Hormonski disbalans" && zdravstveniProblem=="Dijabetes" && zdravstveniProblem=="povisen holesterol"))
+    then
+      i.setIshrana("Unosite premalo kalorija sto moze dovesti do ozbiljnih oboljenja! Jedite vise!");     
+end	
+
+rule "29-uobrocavanje"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" &&ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"),  problemSaUobrocavanjem=="Da", kalorije>=1000,
+        ( zdravstveniProblem=="nemam" &&  zdravstveniProblem=="Hormonski disbalans" && zdravstveniProblem=="Dijabetes" && zdravstveniProblem=="povisen holesterol"))
+    then
+      i.setIshrana("Zbog problema sa uobrocavanjem preporucujemo smanjeni kalorijski unos kao nacin mrsavljenja-mozete jesti kada vam odgovara samo manje!");     
+end	
+
+rule "30-hormonski disbalans"
+salience 90
+    when
+        i : Ishrana( (pol=="muski" && pol=="zenski"), (ciljPromeneIshrane== "mrsavljenje" && ciljPromeneIshrane== "dobijanje misicne mase" && ciljPromeneIshrane== "dobijanje telesne mase" &&ciljPromeneIshrane== "odrzavanje"), 
+        (trening=="1-3 puta nedeljno" && trening=="4 i vise puta nedeljno" && trening=="ne treniram"), (problemSaUobrocavanjem=="Ne" && problemSaUobrocavanjem=="Da"), kalorije>=1000, zdravstveniProblem=="povisen holesterol" )
+    then
+      i.setIshrana("Preporucuje se ogranicavanje unosa masti iz hrane!");     
+end
+
+
+
+
